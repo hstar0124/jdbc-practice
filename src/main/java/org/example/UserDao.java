@@ -67,7 +67,7 @@ public class UserDao {
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         String sql = "SELECT userId, password, name, email, FROM USERS WHERE userid = ?";
-        return (User) jdbcTemplate.executeQuery(userId, sql,
+        return (User) jdbcTemplate.executeQuery(sql,
                 pstmt -> pstmt.setString(1, userId),
                 resultSet -> new User(resultSet.getString("userId"),
                         resultSet.getString("password"),
